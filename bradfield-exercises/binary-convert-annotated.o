@@ -1,0 +1,24 @@
+
+binary-convert.o:	file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+_f:
+       0:	55 	pushq	%rbp                            # save prior frame pointer
+       1:	48 89 e5 	movq	%rsp, %rbp              # prior stack pointer is the new frame pointer
+       4:	8a 0f 	movb	(%rdi), %cl                 # cl = byte located at rdi
+       6:	84 c9 	testb	%cl, %cl                    # set ZF to 1 if cl == 0
+       8:	74 1b 	je	27 <_f+0x25>                    # exit loop immediately if ZF == 1
+       a:	48 ff c7 	incq	%rdi                    # increment rdi by 1
+       d:	31 c0 	xorl	%eax, %eax                  # zero out eax 
+       f:	90 	nop                                     # do nothing
+      10:	80 e1 01 	andb	$1, %cl                 # cl &= 1
+      13:	0f b6 c9 	movzbl	%cl, %ecx               # zero-extend cl into ecx
+      16:	8d 04 41 	leal	(%rcx,%rax,2), %eax     # eax = rcx + 2*rax
+      19:	0f b6 0f 	movzbl	(%rdi), %ecx            # ecx = zero extended byte at rdi
+      1c:	48 ff c7 	incq	%rdi                    # increment rdi
+      1f:	84 c9 	testb	%cl, %cl                    # set ZF to 1 if cl = 0
+      21:	75 ed 	jne	-19 <_f+0x10>                   # loop back if we've reached end of string
+      23:	eb 02 	jmp	2 <_f+0x27>                     # jump to exit loop
+      25:	31 c0 	xorl	%eax, %eax                  # zero out eax
+      27:	5d 	popq	%rbp                            # retrieve prior frame pointer
+      28:	c3 	retq                                    # jump to return address
