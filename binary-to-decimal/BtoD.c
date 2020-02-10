@@ -12,7 +12,6 @@
 /* Stretch goal 2: Have program accept the input
    string from the command line. */
 
-
 main() {
   char binary[4] = "0010";
   int result = 0;
