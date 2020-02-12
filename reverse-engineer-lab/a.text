@@ -1,0 +1,27 @@
+
+a.o:	file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+_f:
+       0:	55 	push	rbp   push source from rbp register onto stack
+       1:	53 	push	rbx   push source from rbx register onto stack
+       2:	50 	push	rax   push source from rax register onto stack
+       3:	89 fb 	mov	ebx, edi  move value in edi to ebx
+       5:	85 db 	test	ebx, ebx    set condition codes according to values
+       7:	7e 2b 	jle	43 <_f+0x34>  jump if less or equal to Label 43(?)
+       9:	83 c3 02 	add	ebx, 2      add 2 to ebx
+       c:	bd 01 00 00 00 	mov	ebp, 1  mov value 1 to ebp
+      11:	66 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 	nop	word ptr cs:[rax + rax]     no operation instruction
+      20:	8d 7b fd 	lea	edi, [rbx - 3]  loads contents of [rbx - 3] into edi
+      23:	e8 d8 ff ff ff 	call	-40 <_f>
+      28:	01 c5 	add	ebp, eax
+      2a:	83 c3 fe 	add	ebx, -2
+      2d:	83 fb 02 	cmp	ebx, 2
+      30:	7f ee 	jg	-18 <_f+0x20>
+      32:	eb 05 	jmp	5 <_f+0x39>
+      34:	bd 01 00 00 00 	mov	ebp, 1
+      39:	89 e8 	mov	eax, ebp
+      3b:	48 83 c4 08 	add	rsp, 8
+      3f:	5b 	pop	rbx
+      40:	5d 	pop	rbp
+      41:	c3 	ret

@@ -1,0 +1,27 @@
+
+b.o:	file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+_f:
+       0:	48 83 ec 18 	sub	rsp, 24
+       4:	89 7c 24 14 	mov	dword ptr [rsp + 20], edi
+       8:	48 63 44 24 14 	movsxd	rax, dword ptr [rsp + 20]
+       d:	48 c1 e0 02 	shl	rax, 2
+      11:	48 89 c7 	mov	rdi, rax
+      14:	e8 00 00 00 00 	call	0 <_f+0x19>
+      19:	48 89 44 24 08 	mov	qword ptr [rsp + 8], rax
+      1e:	c7 44 24 04 00 00 00 00 	mov	dword ptr [rsp + 4], 0
+      26:	8b 44 24 04 	mov	eax, dword ptr [rsp + 4]
+      2a:	3b 44 24 14 	cmp	eax, dword ptr [rsp + 20]
+      2e:	0f 8d 21 00 00 00 	jge	33 <_f+0x55>
+      34:	8b 44 24 04 	mov	eax, dword ptr [rsp + 4]
+      38:	48 8b 4c 24 08 	mov	rcx, qword ptr [rsp + 8]
+      3d:	48 63 54 24 04 	movsxd	rdx, dword ptr [rsp + 4]
+      42:	89 04 91 	mov	dword ptr [rcx + 4*rdx], eax
+      45:	8b 44 24 04 	mov	eax, dword ptr [rsp + 4]
+      49:	83 c0 01 	add	eax, 1
+      4c:	89 44 24 04 	mov	dword ptr [rsp + 4], eax
+      50:	e9 d1 ff ff ff 	jmp	-47 <_f+0x26>
+      55:	48 8b 44 24 08 	mov	rax, qword ptr [rsp + 8]
+      5a:	48 83 c4 18 	add	rsp, 24
+      5e:	c3 	ret

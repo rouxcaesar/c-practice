@@ -1,0 +1,51 @@
+
+convert_disassemble.o:	file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+_main:
+       0:	48 83 ec 38 	sub	rsp, 56
+       4:	c7 44 24 34 00 00 00 00 	mov	dword ptr [rsp + 52], 0
+       c:	48 8d 05 fd 00 00 00 	lea	rax, [rip + 253]
+      13:	48 89 44 24 28 	mov	qword ptr [rsp + 40], rax
+      18:	c7 44 24 24 00 00 00 00 	mov	dword ptr [rsp + 36], 0
+      20:	48 8b 44 24 28 	mov	rax, qword ptr [rsp + 40]
+      25:	0f be 08 	movsx	ecx, byte ptr [rax]
+      28:	83 f9 00 	cmp	ecx, 0
+      2b:	0f 84 8b 00 00 00 	je	139 <_main+0xbc>
+      31:	48 8b 44 24 28 	mov	rax, qword ptr [rsp + 40]
+      36:	0f be 08 	movsx	ecx, byte ptr [rax]
+      39:	83 f9 31 	cmp	ecx, 49
+      3c:	0f 85 67 00 00 00 	jne	103 <_main+0xa9>
+      42:	f2 0f 2a 44 24 24 	cvtsi2sd	xmm0, dword ptr [rsp + 36]
+      48:	48 8b 7c 24 28 	mov	rdi, qword ptr [rsp + 40]
+      4d:	f2 0f 11 44 24 18 	movsd	qword ptr [rsp + 24], xmm0
+      53:	e8 00 00 00 00 	call	0 <_main+0x58>
+      58:	48 ff c8 	dec	rax
+      5b:	66 48 0f 6e c0 	movq	xmm0, rax
+      60:	0f 28 0d 89 00 00 00 	movaps	xmm1, xmmword ptr [rip + 137]
+      67:	66 0f 62 c1 	punpckldq	xmm0, xmm1
+      6b:	66 0f 28 0d 8d 00 00 00 	movapd	xmm1, xmmword ptr [rip + 141]
+      73:	66 0f 5c c1 	subpd	xmm0, xmm1
+      77:	66 0f 7c c0 	haddpd	xmm0, xmm0
+      7b:	f2 0f 10 0d 5d 00 00 00 	movsd	xmm1, qword ptr [rip + 93]
+      83:	f2 0f 11 44 24 10 	movsd	qword ptr [rsp + 16], xmm0
+      89:	0f 28 c1 	movaps	xmm0, xmm1
+      8c:	f2 0f 10 4c 24 10 	movsd	xmm1, qword ptr [rsp + 16]
+      92:	e8 00 00 00 00 	call	0 <_main+0x97>
+      97:	f2 0f 10 4c 24 18 	movsd	xmm1, qword ptr [rsp + 24]
+      9d:	f2 0f 58 c8 	addsd	xmm1, xmm0
+      a1:	f2 0f 2c c9 	cvttsd2si	ecx, xmm1
+      a5:	89 4c 24 24 	mov	dword ptr [rsp + 36], ecx
+      a9:	48 8b 44 24 28 	mov	rax, qword ptr [rsp + 40]
+      ae:	48 83 c0 01 	add	rax, 1
+      b2:	48 89 44 24 28 	mov	qword ptr [rsp + 40], rax
+      b7:	e9 64 ff ff ff 	jmp	-156 <_main+0x20>
+      bc:	8b 74 24 24 	mov	esi, dword ptr [rsp + 36]
+      c0:	48 8d 3d 4e 00 00 00 	lea	rdi, [rip + 78]
+      c7:	b0 00 	mov	al, 0
+      c9:	e8 00 00 00 00 	call	0 <_main+0xce>
+      ce:	8b 74 24 34 	mov	esi, dword ptr [rsp + 52]
+      d2:	89 44 24 0c 	mov	dword ptr [rsp + 12], eax
+      d6:	89 f0 	mov	eax, esi
+      d8:	48 83 c4 38 	add	rsp, 56
+      dc:	c3 	ret
